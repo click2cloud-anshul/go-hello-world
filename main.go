@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 	"os"
+	"fmt"
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
@@ -10,13 +11,17 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	fmt.Println(helloworld())
+	
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
 	}
-
 	mux := http.NewServeMux()
-
 	mux.HandleFunc("/", indexHandler)
 	http.ListenAndServe(":"+port, mux)
+}
+
+func helloworld() string {
+	return "Hello World!!"
 }
