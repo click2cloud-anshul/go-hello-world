@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "rajatanshclusternew-3953"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "rajatanshclusternew-3953"
+  template:
+    metadata:
+      labels:
+        app: "rajatanshclusternew-3953"
+    spec:
+      containers:
+        - name: "rajatanshclusternew-3953"
+          image: "cloudsbrain.azurecr.io/rajatanshclusternew"
+          ports:
+          - containerPort: 8080
